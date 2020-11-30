@@ -1,37 +1,184 @@
-## Welcome to GitHub Pages
+# pure
 
-You can use the [editor on GitHub](https://github.com/aktalk/aktalk.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+A brand new default theme for [[Hexo](https://hexo.io)].  [Preview](http://cofess.github.io/) | [中文说明文档](README.cn.md) | [iconfont](http://blog.cofess.com/hexo-theme-pure/iconfont/demo_fontclass.html)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+![](screenshot/pure.png)
 
-### Markdown
+## Features
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- Multiple languages support
+- Comment support
+- Tags page
+- Categories page
+- Social Media
 
-```markdown
-Syntax highlighted code block
+## Skins
 
-# Header 1
-## Header 2
-### Header 3
+![](screenshot/pure-theme-black.png)
 
-- Bulleted
-- List
+![](screenshot/pure-theme-blue.png)
 
-1. Numbered
-2. List
+![](screenshot/pure-theme-green.png)
 
-**Bold** and _Italic_ and `Code` text
+![](screenshot/pure-theme-purple.png)
 
-[Link](url) and ![Image](src)
+## Appearance
+
+[Home](http://cofess.github.io/) | [Archives](http://cofess.github.io/archives/) | [Categories](http://cofess.github.io/categories/) | [Tags](http://cofess.github.io/tags/) | [Repository](http://cofess.github.io/repository/) | [Books](http://cofess.github.io/books/) | [Links](http://cofess.github.io/links/) | [About](http://cofess.github.io/about/)
+
+## Install theme
+
+Execute the following command under your `hexo` folder.
+
+```
+git clone https://github.com/cofess/hexo-theme-pure.git themes/pure
+```
+Then modify the property `theme` of the file `hexo/_config.yml`  to `theme: pure`
+
+## Update theme
+
+Execute the following command to update theme.
+
+```
+cd themes/pure
+git pull
+```
+## Install plugin
+
+### [hexo-wordcount](https://github.com/willin/hexo-wordcount)
+
+```
+npm install hexo-wordcount --save
+```
+### [hexo-generator-json-content](https://github.com/alexbruno/hexo-generator-json-content)
+
+```
+npm install hexo-generator-json-content --save
+```
+### [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)
+
+```
+npm install hexo-generator-feed --save
+```
+### [hexo-generator-sitemap](https://github.com/hexojs/hexo-generator-sitemap)
+
+```
+npm install hexo-generator-sitemap --save
+```
+### [hexo-generator-baidu-sitemap](https://github.com/coneycode/hexo-generator-baidu-sitemap)
+
+```
+npm install hexo-generator-baidu-sitemap --save
+```
+## Data files
+Sometimes you may need to use some data in templates which is not directly available in your posts, or you want to reuse the data elsewhere. For such use cases, Hexo 3 introduced the new Data files. This feature loads YAML or JSON files in source/_data folder so you can use them in your site.
+
+For example, add links.yml in source/_data folder.
+
+### links data
+
+add links.yml in source/_data folder.
+
+The format of the link :
+
+```
+Name:
+    link: http://example.com
+    avatar: http://example.com/avatar.png
+    desc: description
+```
+Add a number of links, we just need to repeat the format according to the above.
+
+## Blog optimization
+
+### [hexo-neat](https://github.com/rozbo/hexo-neat)
+
+> auto Minify html、js、css and make it neat
+
+```
+npm install hexo-neat --save
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+You can configure this plugin in `_config.yml`.
 
-### Jekyll Themes
+```
+# hexo-neat
+neat_enable: true
+neat_html:
+  enable: true
+  exclude:  
+neat_css:
+  enable: true
+  exclude:
+    - '*.min.css'
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '*.min.js' 
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/aktalk/aktalk.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### [hexo-baidu-url-submit](https://github.com/huiwang/hexo-baidu-url-submit)
 
-### Support or Contact
+```
+npm install hexo-baidu-url-submit --save
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### [hexo-translate-title](https://github.com/cometlj/hexo-translate-title)
+> translate the chinese title of Hexo blog to english words automatially
+
+```
+npm install hexo-translate-title --save
+```
+
+You can configure this plugin in `_config.yml`.
+
+```yml
+translate_title:
+  translate_way: google    #google | baidu | youdao
+  youdao_api_key: XXX
+  youdao_keyfrom: XXX
+  is_need_proxy: true     #true | false
+  proxy_url: http://localhost:8123
+```
+## Mathjax Support
+
+### [hexo-renderer-markdown-it-plus](https://github.com/CHENXCHEN/hexo-renderer-markdown-it-plus)
+
+install
+
+```
+npm un hexo-renderer-marked --save
+npm i hexo-renderer-markdown-it-plus --save
+```
+
+You can configure this plugin in `_config.yml`.
+
+```
+markdown_it_plus:
+  highlight: true
+  html: true
+  xhtmlOut: true
+  breaks: true
+  langPrefix:
+  linkify: true
+  typographer:
+  quotes: “”‘’
+  plugins:
+    - plugin:
+        name: markdown-it-katex
+        enable: true
+    - plugin:
+        name: markdown-it-mark
+        enable: false  
+```
+
+Article enable mathjax
+
+```
+title: Hello World
+mathjax: true
+```
+
